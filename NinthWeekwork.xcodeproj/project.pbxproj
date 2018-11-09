@@ -12,6 +12,7 @@
 		240B5B6721956C3D0089295D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240B5B6521956C3D0089295D /* Main.storyboard */; };
 		240B5B6921956C570089295D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240B5B6821956C570089295D /* Assets.xcassets */; };
 		240B5B6C21956C570089295D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240B5B6A21956C570089295D /* LaunchScreen.storyboard */; };
+		240B5B7421956C570089295D /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B5B7321956C570089295D /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		240B5B6821956C570089295D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		240B5B6B21956C570089295D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		240B5B6D21956C570089295D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		240B5B7321956C570089295D /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleView.swift; path = "../../../../Desktop/模拟/Gesture(老师演示)/Gesture/CircleView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				240B5B6121956C3D0089295D /* AppDelegate.swift */,
 				240B5B6321956C3D0089295D /* ViewController.swift */,
 				240B5B6521956C3D0089295D /* Main.storyboard */,
+				240B5B7321956C570089295D /* CircleView.swift */,
 				240B5B6821956C570089295D /* Assets.xcassets */,
 				240B5B6A21956C570089295D /* LaunchScreen.storyboard */,
 				240B5B6D21956C570089295D /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240B5B7421956C570089295D /* CircleView.swift in Sources */,
 				240B5B6421956C3D0089295D /* ViewController.swift in Sources */,
 				240B5B6221956C3D0089295D /* AppDelegate.swift in Sources */,
 			);
