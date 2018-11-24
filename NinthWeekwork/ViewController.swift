@@ -74,7 +74,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate{
     }
     //旋转
     @objc func rotate(recognizer: UIRotationGestureRecognizer){
-        recognizer.view?.transform = CGAffineTransform(rotationAngle: recognizer.rotation)
+        recognizer.view?.transform = (recognizer.view?.transform.rotated(by: recognizer.rotation))!
         recognizer.rotation = 0
     }
     

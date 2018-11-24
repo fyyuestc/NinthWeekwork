@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class MyCircleView: UIView {
     
-        @IBInspectable var color: UIColor?
+        @IBInspectable var myColor: UIColor?
         //构造函数中的方法
         func setup() {
             //在自定义视图中设置手势
@@ -29,8 +29,10 @@ class MyCircleView: UIView {
             self.addGestureRecognizer(tapRecognizer)
             //设置为双击
             tapRecognizer.numberOfTapsRequired = 2
-            
-            
+            //增加rotate旋转手势
+            let rotateGuesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate(recognizer:)))
+            self.addGestureRecognizer(rotateGuesture)
+            //rotateGuesture.delegate = ViewController
         }
         //与panRecognizer对应的自定义的pan方法
         @objc func pan(recognizer: UIPanGestureRecognizer) {
@@ -58,7 +60,14 @@ class MyCircleView: UIView {
                 print("我被点击了！！!")
             }
         }
-        
+        //与rotateRecognizer对应的自定义的tag方法
+        @objc func rotate(recognizer: UIRotationGestureRecognizer) {
+            let rotation = recognizer.rotation
+            //要写成这种形式,因为rotated返回的是CGAffineTransform
+            self.transform = self.transform.rotated(by: rotation)
+            recognizer.rotation = 0
+        }
+    
         override init(frame: CGRect) {
             super.init(frame: frame)
             setup()
@@ -74,9 +83,10 @@ class MyCircleView: UIView {
         override func draw(_ rect: CGRect) {
             //画圆
             let path = UIBezierPath(ovalIn: rect)
-            UIColor.yellow.setStroke()
+            UIColor.blue.setStroke()
             path.stroke()
-            UIColor.red.setFill()
+            myColor = UIColor.red
+            myColor!.setFill()
             path.fill()
         }
 }
