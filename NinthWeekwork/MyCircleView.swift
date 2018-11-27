@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class MyCircleView: UIView {
+class MyCircleView: UIView,UIGestureRecognizerDelegate {
     
         @IBInspectable var myColor: UIColor?
         //构造函数中的方法
@@ -32,7 +32,7 @@ class MyCircleView: UIView {
             //增加rotate旋转手势
             let rotateGuesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate(recognizer:)))
             self.addGestureRecognizer(rotateGuesture)
-            //rotateGuesture.delegate = ViewController
+            rotateGuesture.delegate = self
         }
         //与panRecognizer对应的自定义的pan方法
         @objc func pan(recognizer: UIPanGestureRecognizer) {
@@ -56,8 +56,9 @@ class MyCircleView: UIView {
         }
         //与tapRecognizer对应的自定义的tag方法
         @objc func tap(recognizer: UITapGestureRecognizer) {
-            if recognizer.state == .recognized {
-                print("我被点击了！！!")
+            if recognizer.state == .recognized{
+               print("被点击了！")
+                changeWhenTag()
             }
         }
         //与rotateRecognizer对应的自定义的tag方法
@@ -77,7 +78,13 @@ class MyCircleView: UIView {
             super.init(coder: aDecoder)
             setup()
         }
-        
+    
+        func changeWhenTag(){
+            myColor = UIColor.blue
+            self.center.x += 20
+            self.center.y += 20
+            setNeedsDisplay()
+        }
         // Only override draw() if you perform custom drawing.
         // An empty implementation adversely affects performance during animation.
         override func draw(_ rect: CGRect) {
@@ -85,7 +92,6 @@ class MyCircleView: UIView {
             let path = UIBezierPath(ovalIn: rect)
             UIColor.blue.setStroke()
             path.stroke()
-            myColor = UIColor.red
             myColor!.setFill()
             path.fill()
         }
